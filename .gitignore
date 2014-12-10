@@ -1,0 +1,7 @@
+*~
+*.swp
+.gradle/
+.idea/
+*.iml
+gradle-runner/
+target

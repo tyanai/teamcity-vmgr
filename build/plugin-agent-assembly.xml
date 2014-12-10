@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<assembly>
+    <id>plugin-agent-assembly</id>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <files>
+        <file>
+            <source>../vmgr-runner-agent/teamcity-plugin.xml</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+    </files>
+    <moduleSets>
+        <moduleSet>
+            <useAllReactorProjects>true</useAllReactorProjects>
+            <includes>
+                <include>jetbrains.buildServer.vmgr:vmgr-runner-agent</include>
+                <include>jetbrains.buildServer.vmgr:vmgr-runner-common</include>
+            </includes>
+            <binaries>
+                <outputDirectory>lib</outputDirectory>
+                <unpack>false</unpack>
+                <dependencySets>
+                    <dependencySet>
+                        <includes>
+                            <include>*</include>
+                        </includes>
+                        <excludes>
+                            <exclude>jcifs:jcifs</exclude>
+                        </excludes>
+                    </dependencySet>
+                </dependencySets>
+            </binaries>
+        </moduleSet>
+    </moduleSets>
+</assembly>
+

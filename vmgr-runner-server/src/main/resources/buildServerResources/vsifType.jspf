@@ -1,0 +1,37 @@
+<%@ taglib prefix="admin" tagdir="/WEB-INF/tags/admin" %>
+<%@ taglib prefix="props" tagdir="/WEB-INF/tags/props" %>
+<l:settingsGroup title="VSIF setting">
+    <tr>
+        <th><label for="jetbrains.buildServer.vmgr.vsifType">VSIF Type:</label></th>
+        <td><props:selectProperty name="<%=VMGRRunnerConstants.VSIF_TYPE%>" onchange="selectVsifType()">
+                <props:option value="STATIC_VSIF">Static VSIF file name</props:option>
+                <props:option value="DYNAMIC_VSIF">Dynamic VSIF file names</props:option>
+            </props:selectProperty>
+        </td>
+    </tr>
+    <tr class="vsif staticVsif">
+        <th><label for="jetbrains.buildServer.vmgr.vsif.static.filename">VSIF file location: <l:star/></label></th>
+        <td><props:textProperty name="<%=VMGRRunnerConstants.STATIC_VSIF_FILE_NAME%>"  className="longField" maxlength="256"/>
+            <span class="smallNote">Default VSIF file location with VSIF file name.</span><span class="error" id="error_jetbrains.buildServer.vmgr.vsif.static.filename"></span>
+        </td>
+    </tr>
+    <tr class="vsif dynamicVsif">
+        <th><label for="jetbrains.buildServer.vmgr.vsif.dynamic.filename">Name of input file:</label></th>
+        <td><props:textProperty name="<%=VMGRRunnerConstants.DYNAMIC_VSIF_FILE_NAME%>"  className="longField" maxlength="256"/>
+            <span class="smallNote">Name of input file with one or more VSIF files for execution (not mandatory).</span><span class="error" id="error_jetbrains.buildServer.vmgr.vsif.dynamic.filename"></span>
+        </td>
+    </tr>
+    
+</l:settingsGroup>
+<script type="text/javascript">
+	selectVsifType = function () {
+        BS.Util.toggleDependentElements($('<%=VMGRRunnerConstants.VSIF_TYPE%>').value, 'vsif', false, {
+        	STATIC_VSIF : 'staticVsif',
+        	DYNAMIC_VSIF : 'dynamicVsif'
+        	
+        });
+
+        BS.VisibilityHandlers.updateVisibility($('runnerParams'))
+    }
+    selectVsifType();
+</script>

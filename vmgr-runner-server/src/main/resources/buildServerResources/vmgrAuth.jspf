@@ -1,0 +1,50 @@
+<%@ taglib prefix="admin" tagdir="/WEB-INF/tags/admin" %>
+<%@ taglib prefix="props" tagdir="/WEB-INF/tags/props" %>
+<l:settingsGroup title="vManager Credentials">
+    <tr>
+        <th><label for="jetbrains.buildServer.vmgr.authRequired">Authentication Required:</label></th>
+        <td><props:selectProperty name="<%=VMGRRunnerConstants.AUTH_REQUIRED%>" onchange="selectAuth()">
+                <props:option value="NOT_REQUIRED">No</props:option>
+                <props:option value="REQUIRED">Yes</props:option>
+            </props:selectProperty>
+            <span class="smallNote isAuth noAuth">vManager server is not configured for any credentials.</span>
+        </td>
+    </tr>
+    <tr class="isAuth yesAuth">
+        <th><label for="jetbrains.buildServer.vmgr.username">Username:  <l:star/></label></th>
+        <td><props:textProperty name="<%=VMGRRunnerConstants.PARAM_USERNAME%>"  className="longField" maxlength="256"/>
+            <span class="smallNote">Enter username</span><span class="error" id="error_jetbrains.buildServer.vmgr.username"></span>
+        </td>
+    </tr>
+    <tr class="isAuth yesAuth">
+    <th><label for="jetbrains.buildServer.vmgr.dynamic.user">Pick User ID dynamically</label></th>
+    <td>
+      <props:checkboxProperty name="<%=VMGRRunnerConstants.DYNAMIC_USER%>"/>
+      <span class="smallNote">If checked, the user id will get picked from the workspace</span><span class="error" id="error_jetbrains.buildServer.vmgr.dynamic.user"></span>
+    </td>
+    </tr>
+    <tr class="isAuth yesAuth" id="password_row">
+        <th>
+            <label class="isAuth yesAuth" for="jetbrains.buildServer.vmgr.password">Password: <l:star/></label>
+            <!-- <label class="isAuth customKey" for="jetbrains.buildServer.vmgr.password">Passphrase: <l:star/></label>-->
+        </th>
+        <td><props:passwordProperty name="<%=VMGRRunnerConstants.PARAM_PLAIN_PASSWORD%>"  className="longField" maxlength="256"/>
+        	 <span class="smallNote">Enter password</span><span class="error" id="error_jetbrains.buildServer.vmgr.password"></span>
+        </td>
+    </tr>
+    
+    <tr class="isAuth noAuth">
+    </tr>
+    
+</l:settingsGroup>
+<script type="text/javascript">
+	selectAuth = function () {
+        BS.Util.toggleDependentElements($('<%=VMGRRunnerConstants.AUTH_REQUIRED%>').value, 'isAuth', false, {
+        	NOT_REQUIRED : 'noAuth',
+        	REQUIRED : 'yesAuth'
+        });
+
+        BS.VisibilityHandlers.updateVisibility($('runnerParams'))
+    }
+    selectAuth();
+</script>

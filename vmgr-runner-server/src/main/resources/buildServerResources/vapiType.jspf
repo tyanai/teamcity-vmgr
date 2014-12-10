@@ -1,0 +1,55 @@
+<%@ taglib prefix="admin" tagdir="/WEB-INF/tags/admin" %>
+<%@ taglib prefix="props" tagdir="/WEB-INF/tags/props" %>
+<l:settingsGroup title="vAPI setting">
+	<tr>
+        <th><label for="jetbrains.buildServer.vmgr.vapi.url.api">vAPI URL (The API itself): <l:star/></label></th>
+        <td><props:textProperty name="<%=VMGRRunnerConstants.VAPI_URL%>"  className="longField" maxlength="256"/>
+            <span class="smallNote">Enter the API (example: /runs/list)</span><span class="error" id="error_jetbrains.buildServer.vmgr.vapi.url.api"></span>
+        </td>
+    </tr>
+    <tr>
+        <th><label for="jetbrains.buildServer.vmgr.vapi.request.method">Choose Request Method: </label></th>
+        <td>
+            <props:selectProperty name="<%=VMGRRunnerConstants.VAPI_REQUEST_METHOD%>">
+                <c:forEach var="type" items="${runnerConst.vapiRequestMethodValues}">
+                    <props:option value="${type.key}"><c:out value="${type.value}"/></props:option>
+                </c:forEach>
+            </props:selectProperty>
+            <span class="smallNote">Select the request type to be used for the API call</span>
+        </td>
+    </tr>
+    <tr>
+        <th><label for="jetbrains.buildServer.vmgr.vapiType">vAPI Type:</label></th>
+        <td><props:selectProperty name="<%=VMGRRunnerConstants.VAPI_TYPE%>" onchange="selectVapiType()">
+                <props:option value="STATIC_VAPI">Static vAPI input</props:option>
+                <props:option value="DYNAMIC_VAPI">Dynamic vAPI file input</props:option>
+            </props:selectProperty>
+        </td>
+    </tr>
+    <tr class="vapi staticVapi">
+        <th><label for="jetbrains.buildServer.vmgr.api.input.static">API Input (jSON format): </label></th>
+        <td>
+            <props:multilineProperty name="<%=VMGRRunnerConstants.VAPI_STATIC_INPUT%>" className="longField" cols="30" rows="7" expanded="true" linkTitle="Enter static input for the API here:"/>
+            <span class="smallNote">API Input for vAPI in jSON format.</span>
+        </td>
+    </tr>
+    <tr class="vapi dynamicVapi">
+        <th><label for="jetbrains.buildServer.vmgr.vapi.dynamic.filename">Name of input file:</label></th>
+        <td><props:textProperty name="<%=VMGRRunnerConstants.DYNAMIC_VAPI_FILE_NAME%>"  className="longField" maxlength="256"/>
+            <span class="smallNote">Name of input file to contain the json input (not mandatory).</span><span class="error" id="error_jetbrains.buildServer.vmgr.vapi.dynamic.filename"></span>
+        </td>
+    </tr>
+    
+</l:settingsGroup>
+<script type="text/javascript">
+	selectVapiType = function () {
+        BS.Util.toggleDependentElements($('<%=VMGRRunnerConstants.VAPI_TYPE%>').value, 'vapi', false, {
+        	STATIC_VAPI : 'staticVapi',
+        	DYNAMIC_VAPI : 'dynamicVapi'
+        	
+        });
+
+        BS.VisibilityHandlers.updateVisibility($('runnerParams'))
+    }
+	selectVapiType();
+</script>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamcity-plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:shemas-jetbrains-com:teamcity-plugin-v1-xml">
+  <info>
+    <name>vmgr-runner</name>
+    <display-name>Cadence vManager Adapter</display-name>
+    <version>@Version@</version>
+    <description>Adds an ability to launch a session or call Cadence vManager vAPI REST API dynamically as a step in your build.</description>
+    <download-url>http://tyanai.github.io/teamcity-vmgr/</download-url>
+    <email>tal@yanai.org.il</email>
+    <vendor>
+      <name>Tal Yanai</name>
+      <url></url>
+      <logo></logo>
+    </vendor>
+  </info>
+  <deployment use-separate-classloader="true" />
+</teamcity-plugin>
