@@ -66,7 +66,7 @@
 
 <p>After installing the plugin you'll get two new steps in the build step selection.</p>
 
-<p><img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/newStep.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tyanai/teamcity-vmgr/master/images/newStep.png" alt=""></p>
 
 <ul>
 <li>Choose "vManager API" if you need a free-style vAPI call to sends dynamic json input and receive a json output.</li>
@@ -89,11 +89,11 @@
 The below is an example of defining a static vAPI call for getting a list of runs:</li>
 </ol>
 
-<p><img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/staticApi.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tyanai/teamcity-vmgr/master/images/staticApi.png" alt=""></p>
 
 <p>The below is an example of defining a dynamic vAPI call:</p>
 
-<p><img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/dynamicApi.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tyanai/teamcity-vmgr/master/images/dynamicApi.png" alt=""></p>
 
 <p>In case of a need in dynamically change the jSON input for the API per step, the pre-step should create a file with the relevant jSON string to be sent to the vAPI.
 The input file can be placed anywhere within the agent accessible path . In case this field is empty, The file name need to be: ﻿﻿﻿$CHECKOUT_DIR/$BUILD_ID/vapi.input</p>
@@ -111,11 +111,11 @@ The input file can be placed anywhere within the agent accessible path . In case
 
 <p>The below is an example of defining a static vsif call:</p>
 
-<p><img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/staticVsif.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tyanai/teamcity-vmgr/master/images/staticVsif.png" alt=""></p>
 
 <p>The below is an example of defining a dynamic launch call with  multiple vsif files:</p>
 
-<p><img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/dynamicVsif.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tyanai/teamcity-vmgr/master/images/dynamicVsif.png" alt=""></p>
 
 <p>In case of a need in dynamically selecting the vsif files to get launched per step, the pre-step should create a file with the relevant data. The input file can be placed anywhere within the agent accessible path. The data insist for various lines with the full paths of the relevant vsif files to be launched, new line for each additional vsif file.</p>
 
@@ -124,7 +124,7 @@ Please fill this field only in case, you want to hard code the input file name, 
 
 <p><strong>Authentication</strong></p>
 
-<p><img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/authentication.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/tyanai/teamcity-vmgr/master/images/authentication.png" alt=""></p>
 
 <p>In case of a need in dynamically selecting the user name per step, the pre-step should place into the workspace directory a file with single line that contains the userid to be used.
 The file name should be: $CHECKING_DIR/$BUILD_ID/user.input
