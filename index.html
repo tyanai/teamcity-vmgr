@@ -64,8 +64,9 @@
 <a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Configuration</strong>
 </h3>
 
-<p>After installing the plugin you'll get two new steps in the build step selection.
-<img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/newStep.png" alt=""></p>
+<p>After installing the plugin you'll get two new steps in the build step selection.</p>
+
+<p><img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/newStep.png" alt=""></p>
 
 <ul>
 <li>Choose "vManager API" if you need a free-style vAPI call to sends dynamic json input and receive a json output.</li>
@@ -90,8 +91,9 @@ The below is an example of defining a static vAPI call for getting a list of run
 
 <p><img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/staticApi.png" alt=""></p>
 
-<p>The below is an example of defining a dynamic vAPI call:
-<img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/dynamicApi.png" alt=""></p>
+<p>The below is an example of defining a dynamic vAPI call:</p>
+
+<p><img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/dynamicApi.png" alt=""></p>
 
 <p>In case of a need in dynamically change the jSON input for the API per step, the pre-step should create a file with the relevant jSON string to be sent to the vAPI.
 The input file can be placed anywhere within the agent accessible path . In case this field is empty, The file name need to be: ﻿﻿﻿$CHECKOUT_DIR/$BUILD_ID/vapi.input</p>
@@ -107,11 +109,13 @@ The input file can be placed anywhere within the agent accessible path . In case
 <li>Launching a vsif that is located on the NFS and is available to vManager Server.</li>
 </ol>
 
-<p>The below is an example of defining a static vsif call:
-<img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/staticVsif.png" alt=""></p>
+<p>The below is an example of defining a static vsif call:</p>
 
-<p>The below is an example of defining a dynamic launch call with  multiple vsif files:
-<img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/dynamicVsif.png" alt=""></p>
+<p><img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/staticVsif.png" alt=""></p>
+
+<p>The below is an example of defining a dynamic launch call with  multiple vsif files:</p>
+
+<p><img src="https://github.com/tyanai/teamcity-vmgr/blob/master/images/dynamicVsif.png" alt=""></p>
 
 <p>In case of a need in dynamically selecting the vsif files to get launched per step, the pre-step should create a file with the relevant data. The input file can be placed anywhere within the agent accessible path. The data insist for various lines with the full paths of the relevant vsif files to be launched, new line for each additional vsif file.</p>
 
