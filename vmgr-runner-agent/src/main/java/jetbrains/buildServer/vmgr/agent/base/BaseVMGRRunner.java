@@ -47,7 +47,7 @@ public abstract class BaseVMGRRunner implements AgentBuildRunner {
         
         //builder.setArtifactsPaths(sourcePaths);
         builder.setArtifactsPaths(runningBuild.getCheckoutDirectory().getAbsolutePath());
-        System.out.println("The working directory for vManager Plugin is: " + runningBuild.getCheckoutDirectory().getAbsolutePath());
+        
 
         final List<ArtifactsCollection> artifactsCollections = builder.build();
 
